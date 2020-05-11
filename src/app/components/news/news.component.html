@@ -1,0 +1,41 @@
+<div class="table-responsive-sm">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th *ngFor="let row of Headers; let i = index">
+          {{ row }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of allNews | slice: start:end; let i = index">
+        <td class="comments">{{ row.num_comments }}</td>
+        <td class="upvotes">{{ row.points }}</td>
+        <td class="vote">
+          <!-- <input type="" name="" [(ngModel)]="row.voteCount" /> -->
+          <span class="arrow active" (click)="upvotes(row.points, i)"></span>
+        </td>
+        <td>
+          <span class="details" (click)="navigate(row.url)">{{
+            row.title
+          }}</span>
+          <span class="link" (click)="navigate(row.url)">
+            <a href="#">({{ row.url }})</a>
+          </span>
+          <small class="by">by</small>
+          <span class="user">{{ row.author }}</span>
+          <span class="time">{{ row.created_at | days }} days</span>
+          <span class="hide" (click)="hideNews(i)">[ <strong>hide</strong> ]</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- <div>
+    <canvas height="30px" id="canvas">{{ chart }}</canvas>
+  </div> -->
+  <app-pagenation (pagenationStartVal)="getPagenationStartVal($event)" (pagenationEndVal)="getPagenationEndVal($event)">
+  </app-pagenation>
+  <app-chart></app-chart>
+</div>

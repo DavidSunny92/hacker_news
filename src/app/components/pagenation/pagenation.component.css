@@ -1,0 +1,9 @@
+.preview {
+  pointer-events: none;
+  cursor: default;
+  color: red;
+}
+
+.style {
+  color: green;
+}

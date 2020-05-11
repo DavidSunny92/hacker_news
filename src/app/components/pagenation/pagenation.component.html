@@ -1,0 +1,5 @@
+<div class="load-more">
+  <strong [ngClass]="(startVal==0)?'preview':'style'" (click)="startValFun(startVal)">Previous</strong> |<strong
+    (click)="endValFun(endVal)" [ngClass]="(endVal>=20)?'preview':'style'">
+    Next</strong>
+</div>
